@@ -29,9 +29,12 @@ app.use('/api/announcements', require('./routes/announcements'));
 
 // Error Handling (Production)
 app.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.status(500).json({ msg: 'Critical System Error' });
+  console.error(err.stack);
+  res.status(500).json({ msg: 'Critical System Error' });
 });
 
 // Server Listen
 app.listen(PORT, '0.0.0.0', () => console.log(`🚀 Server started on port ${PORT}`));
+app.get("/", (req, res) => {
+  res.send("🔥 Aspirant Backend is Live!");
+});
